@@ -15,7 +15,8 @@
 }
 
 .centered-content {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
+    width: 70vw;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -32,4 +33,34 @@ tr:nth-child(odd) {
 th, td {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+/*contact list view*/
+
+.data-list-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.data-item {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden; /* Dodane, aby ukryæ dodatkowe informacje */
+}
+
+.data-item-content {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .data-item-content:hover {
+        background-color: #e0e0e0;
+    }
+
+.expanded-fields {
+    padding: 10px;
+    background-color: #d3d3d3;
+    border-radius: 0 0 5px 5px; /* Dodane, aby dopasowaæ górne krawêdzie */
 }

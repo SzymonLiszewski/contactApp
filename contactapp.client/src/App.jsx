@@ -10,28 +10,36 @@ function App() {
         populateWeatherData();
     }, []);
 
+    const [expandedFields, setExpandedFields] = useState({});
+
+    const handleFieldClick = (id) => {
+        setExpandedFields(prevState => ({
+            ...prevState,
+            [id]: !prevState[id]
+        }));
+    };
+
     const contents = forecasts === undefined
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.firstName}>
-                        <td>{forecast.lastName}</td>
-                        <td>{forecast.email}</td>
-                        <td>{forecast.category}</td>
-                        <td>{forecast.phoneNumber}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
+        : <div className="data-list-container">
+            <h2>Lista danych</h2>
+            {forecasts.map(item => (
+                <div key={item.id} className="data-item">
+                    <div className="data-item-content" onClick={() => handleFieldClick(item.id)}>
+                        <strong>{item.firstName} {item.lastName}</strong>
+                    </div>
+                    {expandedFields[item.id] && (
+                        <div className="expanded-fields">
+                            <p>email address: {item.email}</p>
+                            <p>password: {item.password}</p>
+                            <p>category: {item.category}</p>
+                            <p>phone number: {item.phoneNumber}</p>
+                            <p>date of birth: {item.dateOfBirth}</p>
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>;
 
     return (
         <div>
@@ -40,8 +48,7 @@ function App() {
             </div>
             <div className="flex-container">
                 <div className="centered-content">
-                <h1 id="tabelLabel">Weather forecast</h1>
-                <p>This component demonstrates fetching data from the server.</p>
+                <h1 id="tabelLabel">Contacts</h1>
                     {contents}
                 </div>
             </div>
