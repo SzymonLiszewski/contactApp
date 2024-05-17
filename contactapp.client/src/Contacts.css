@@ -1,0 +1,35 @@
+.Contacts {
+    max-width: 1280px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.flex-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.centered-content {
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #F2F2F2;
+}
+
+tr:nth-child(odd) {
+    background: #FFF;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

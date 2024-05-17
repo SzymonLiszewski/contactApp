@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "contactApp.Server", "contactApp.Server\contactApp.Server.csproj", "{C21038F1-760D-4829-8FA6-D79E8D0C085B}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "contactapp.client", "contactapp.client\contactapp.client.esproj", "{B7640B83-7ADA-4092-9D1F-A50195EF261B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C21038F1-760D-4829-8FA6-D79E8D0C085B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21038F1-760D-4829-8FA6-D79E8D0C085B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21038F1-760D-4829-8FA6-D79E8D0C085B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21038F1-760D-4829-8FA6-D79E8D0C085B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7640B83-7ADA-4092-9D1F-A50195EF261B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7640B83-7ADA-4092-9D1F-A50195EF261B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7640B83-7ADA-4092-9D1F-A50195EF261B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B7640B83-7ADA-4092-9D1F-A50195EF261B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7640B83-7ADA-4092-9D1F-A50195EF261B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7640B83-7ADA-4092-9D1F-A50195EF261B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABDFC4FF-4DFD-4A81-83B7-D882C5EA718B}
+	EndGlobalSection
+EndGlobal
