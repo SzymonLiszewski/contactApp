@@ -64,3 +64,14 @@ th, td {
     background-color: #d3d3d3;
     border-radius: 0 0 5px 5px;
 }
+
+#editIcon{
+    margin-left:50px;
+}
+.icon{
+    margin-left:10px;
+}
+
+    .icon:hover {
+        filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+    }

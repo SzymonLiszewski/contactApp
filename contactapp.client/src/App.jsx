@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import React from 'react';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -7,10 +7,12 @@ import DisplayContacts from './components/DisplayContacts'
 import Register from './components/Register'
 import './Contacts.css';
 
+import { AuthContext } from './AuthContext';
+
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
-
+    const { isLoggedIn } = useContext(AuthContext);
     return (
         <Router>
             <React.Fragment>

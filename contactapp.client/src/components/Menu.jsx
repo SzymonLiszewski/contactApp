@@ -7,8 +7,7 @@ function Menu() {
             <ul className="menu">
                 <li><a href="home">Home</a></li>
                 <li><a href="login">login</a></li>
-                <li><a href="services">Services</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="register">sign up</a></li>
             </ul>
         </nav>
     );

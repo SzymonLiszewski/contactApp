@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './Login.css';
-
+import {useContext } from 'react';
+import { AuthContext } from '../AuthContext';
 function Login() {
+    const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -65,6 +68,7 @@ function Login() {
         .then(response => {
             if (response.ok) {
                 console.log('Pomyœlnie zalogowano!');
+                setIsLoggedIn(true);
                 navigate('/home');
                 alert('zalogowano');
                
