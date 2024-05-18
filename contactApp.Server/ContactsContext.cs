@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using contactApp.Server.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace contactApp.Server
 {
@@ -8,5 +9,6 @@ namespace contactApp.Server
         {
         }
         public DbSet<Contacts> Contacts { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
