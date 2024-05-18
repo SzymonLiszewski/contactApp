@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 100vh;
+    height: 90vh;
     background-color: #f0f0f0;
 }
 
@@ -46,7 +46,7 @@ th, td {
     background-color: #f9f9f9;
     border-radius: 5px;
     margin-bottom: 10px;
-    overflow: hidden; /* Dodane, aby ukryæ dodatkowe informacje */
+    overflow: hidden; 
 }
 
 .data-item-content {
@@ -62,5 +62,5 @@ th, td {
 .expanded-fields {
     padding: 10px;
     background-color: #d3d3d3;
-    border-radius: 0 0 5px 5px; /* Dodane, aby dopasowaæ górne krawêdzie */
+    border-radius: 0 0 5px 5px;
 }
