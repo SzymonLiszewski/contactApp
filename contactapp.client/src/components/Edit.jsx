@@ -158,7 +158,23 @@ function Edit() {
         })
         .then(response => {
             if (response.ok) {
-                console.log('data modified succesfully');
+                alert('data modified succesfully');
+            }
+            return response.json();
+        })
+        .then(text => {
+            console.log(text.errors)
+            if ('email' in text.errors) {
+                setError(text.errors.email[0]);
+            }
+            else if ('password' in text.errors) {
+                setError(text.errors.password[0]);
+            }
+            else if ('dateOfBirth' in text.errors) {
+                setError(text.errors.dateOfBirth[0]);
+            }
+            else if ('phoneNumber' in text.errors) {
+                setError(text.errors.phoneNumber[0]);
             }
         })
     }

@@ -39,6 +39,7 @@ builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
+builder.Services.AddScoped<IValidator<Contacts>, ContactValidator>();
 builder.Services.AddDbContext<ContactsContext>(opt =>
     opt.UseInMemoryDatabase("ContactsList"));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

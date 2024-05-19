@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import '/src/Contacts.css'
 import { useParams } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import { format } from 'date-fns';
 
 function AddNewContact() {
     const [contactData, setContactData] = useState();
@@ -15,6 +17,7 @@ function AddNewContact() {
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [error, setError] = useState('');
 
+
     const { id } = useParams();
 
 
@@ -25,7 +28,8 @@ function AddNewContact() {
             setError('email and password are required');
             return;
         }
-
+        const formattedDate = dateOfBirth ? format(dateOfBirth, 'yyyy-MM-dd') : '';
+        console.log(formattedDate);
         postData({ id, firstName, lastName, email, password, category, phoneNumber, dateOfBirth });
         setError('');
     };
@@ -36,6 +40,17 @@ function AddNewContact() {
                 <div className="login-container">
                     <h2>Edit contact</h2>
                     <form onSubmit={handleSubmit} className="login-form">
+                        <div className="form-group">
+                            <label htmlFor="dateOfBirth">date of birth:</label>
+                            <input
+                                type="text"
+                                id="dateOfBirth"
+                                value={dateOfBirth}
+                                onChange={(e) => setDateOfBirth(e.target.value)}
+                                className="form-input"
+                            />
+
+                        </div>
                         <div className="form-group">
                             <label htmlFor="email">Email:</label>
                             <input
@@ -90,15 +105,7 @@ function AddNewContact() {
                                 className="form-input"
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="dateOfBirth">date of birth:</label>
-                            <input
-                                type="text"
-                                id="dateOfBirth"
-                                onChange={(e) => setDateOfBirth(e.target.value)}
-                                className="form-input"
-                            />
-                        </div>
+                        
                         {error && <p className="error-message">{error}</p>}
                         <button type="submit" className="submit-button" onClick={handleSubmit}>Submit</button>
                     </form>
@@ -117,7 +124,23 @@ function AddNewContact() {
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('contact created succesfully');
+                    alert('contact created succesfully');
+                }
+                return response.json();
+            })
+            .then(text => {
+                console.log(text.errors)
+                if ('email' in text.errors) {
+                    setError(text.errors.email[0]);
+                }
+                else if ('password' in text.errors) {
+                    setError(text.errors.password[0]);
+                }
+                else if ('dateOfBirth' in text.errors) {
+                    setError(text.errors.dateOfBirth[0]);
+                }
+                else if ('phoneNumber' in text.errors) {
+                    setError(text.errors.phoneNumber[0]);
                 }
             })
     }

@@ -5,6 +5,7 @@ import './Menu.css';
 function Menu() {
     const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
     const isLoggedIn = localStorage.getItem('isLoggedIn');
+
     return (
         <nav>
             <ul className="menu">
