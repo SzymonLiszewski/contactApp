@@ -120,7 +120,7 @@ function Edit() {
 
     function getData() {
         console.log(id);
-        fetch('../Contacts/1', {
+        fetch('../Contacts/'+id, {
             headers: {
                 method: 'Get',
                 Accept: 'application/json'
@@ -149,7 +149,7 @@ function Edit() {
     }
 
     function editData(data) {
-        fetch('../Contacts/1', {
+        fetch('../Contacts/'+id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

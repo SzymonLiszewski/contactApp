@@ -3,6 +3,7 @@ import '/src/Contacts.css'
 
 function DisplayContacts() {
     const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
     const [forecasts, setForecasts] = useState();
 
     useEffect(() => {
@@ -22,15 +23,15 @@ function DisplayContacts() {
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
         : <div className="data-list-container">
             <h2>Lista danych</h2>
-            <a href="/create">create new</a>
+            {isLoggedIn==='true' ? <a href="/create">create new</a> : null}
             {forecasts.map(item => (
                 <div key={item.id} className="data-item">
                     <div className="data-item-content" onClick={() => handleFieldClick(item.id)}>
                         <strong>{item.firstName} {item.lastName}</strong>
-                       
+                        {isLoggedIn==='true' ? <a href={`/edit/${item.id}`}><img src="src/assets/edit.svg" alt="edit" width="20" height="20" className="icon" id="editIcon" /></a> : null}
+                        {isLoggedIn==='true' ? <a><img src="src/assets/delete.svg" alt="delete" width="20" height="20" className="icon" onClick={() => deleteContact(item.id)} /></a> : null}
                     </div>
-                    <a href="/login"><img src="src/assets/edit.svg" alt="edit" width="20" height="20" className="icon" id="editIcon" /></a>
-                    <a><img src="src/assets/delete.svg" alt="delete" width="20" height="20" className="icon" onClick={() => deleteContact(item.id)} /></a>
+                    
                     {expandedFields[item.id] && (
                         <div className="expanded-fields">
                             <p>email address: {item.email}</p>
