@@ -86,6 +86,7 @@ namespace contactApp.Server.Controllers
         }
 
         // DELETE: api/Contacts/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContacts(long id)
         {

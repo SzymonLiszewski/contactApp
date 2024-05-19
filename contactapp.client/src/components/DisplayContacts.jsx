@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '/src/Contacts.css'
 
 function DisplayContacts() {
+    const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
     const [forecasts, setForecasts] = useState();
 
     useEffect(() => {
@@ -25,9 +26,10 @@ function DisplayContacts() {
                 <div key={item.id} className="data-item">
                     <div className="data-item-content" onClick={() => handleFieldClick(item.id)}>
                         <strong>{item.firstName} {item.lastName}</strong>
-                        <a href="/login"><img src="src/assets/edit.svg" alt="edit" width="20" height="20" className="icon" id="editIcon"/></a>
-                        <a><img src="src/assets/delete.svg" alt="delete" width="20" height="20" className="icon" onClick={()=>deleteContact(item.id)} /></a>
+                       
                     </div>
+                    <a href="/login"><img src="src/assets/edit.svg" alt="edit" width="20" height="20" className="icon" id="editIcon" /></a>
+                    <a><img src="src/assets/delete.svg" alt="delete" width="20" height="20" className="icon" onClick={() => deleteContact(item.id)} /></a>
                     {expandedFields[item.id] && (
                         <div className="expanded-fields">
                             <p>email address: {item.email}</p>
@@ -57,11 +59,11 @@ function DisplayContacts() {
     }
 
     async function deleteContact(id) {
-        console.log(id);
         fetch('Contacts/'+id, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
         populateWeatherData();

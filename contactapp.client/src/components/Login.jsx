@@ -58,6 +58,7 @@ function Login() {
     );
 
     function logUser(loginData) {
+        var logged = false;
         fetch('api/account/Login', {
             method: 'POST',
             headers: {
@@ -65,20 +66,26 @@ function Login() {
             },
             body: JSON.stringify(loginData)
         })
-        .then(response => {
-            if (response.ok) {
-                console.log('Pomyœlnie zalogowano!');
-                setIsLoggedIn(true);
-                navigate('/home');
-                alert('zalogowano');
-               
-            } else {
-                console.log('Wyst¹pi³ b³¹d podczas logowania:', response.text());
-                alert('nieprawidlowe haslo lub email');
-            }
-        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('login succesfull');
+                    setIsLoggedIn(true);
+                    logged = true;
+                    console.log(isLoggedIn);
+                } return response.text();
+            })
+            .then(text => {
+                if (logged) {
+                    alert('zalogowano');
+                    sessionStorage.setItem('jwtToken', text);
+                    navigate('/home');
+                }
+                else {
+                    alert("incorrect email or password")
+                }
+                })
         .catch(error => {
-            console.error('Wyst¹pi³ b³¹d sieciowy:', error);
+            console.error(error);
         });
     }
 }
