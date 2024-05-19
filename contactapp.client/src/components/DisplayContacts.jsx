@@ -22,6 +22,7 @@ function DisplayContacts() {
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
         : <div className="data-list-container">
             <h2>Lista danych</h2>
+            <a href="/create">create new</a>
             {forecasts.map(item => (
                 <div key={item.id} className="data-item">
                     <div className="data-item-content" onClick={() => handleFieldClick(item.id)}>

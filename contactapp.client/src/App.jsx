@@ -6,6 +6,7 @@ import Login from './components/Login'
 import DisplayContacts from './components/DisplayContacts'
 import Register from './components/Register'
 import Edit from './components/Edit'
+import AddNewContact from './components/AddNewContact'
 import './Contacts.css';
 
 import { AuthContext } from './AuthContext';
@@ -23,6 +24,7 @@ function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/home' element={<DisplayContacts />} />
                     <Route path='/edit/:id' element={<Edit />} />
+                    <Route path='/create' element={<AddNewContact />} />
                     <Route path='/' element={<Navigate to='/home' />} />
                 </Routes>
                 <Footer />
