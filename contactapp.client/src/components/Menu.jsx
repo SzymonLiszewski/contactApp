@@ -1,11 +1,14 @@
 //import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './Menu.css';
 
 
 function Menu() {
     const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
     const isLoggedIn = localStorage.getItem('isLoggedIn');
-
+    useEffect(() => {
+        //reload();
+    }, [localStorage.getItem('isLoggedIn')]);
     return (
         <nav>
             <ul className="menu">

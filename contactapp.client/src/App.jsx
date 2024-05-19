@@ -24,12 +24,11 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/home' element={<DisplayContacts />} />
+                    <Route path='/home' element={<div><Menu /> <DisplayContacts /></div>} />
                     <Route path='/edit/:id' element={<Edit />} />
                     <Route path='/create' element={<AddNewContact />} />
                     <Route path='/' element={<Navigate to='/home' />} />
                 </Routes>
-                <Footer />
             </React.Fragment>
         </Router>
     );
