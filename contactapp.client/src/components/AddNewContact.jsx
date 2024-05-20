@@ -14,12 +14,11 @@ function AddNewContact() {
     const [password, setPassword] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('business');
     const [subCategory, setsubCategory] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [error, setError] = useState('');
-
 
     const { id } = useParams();
 
@@ -36,6 +35,43 @@ function AddNewContact() {
         postData({ id, firstName, lastName, email, password, category,subCategory, phoneNumber, dateOfBirth });
         setError('');
     };
+
+    function subCategoryField() {
+        if (category == 'business') {
+            return (
+                <div className="form-group">
+                    <label htmlFor="subCategory">subategory:</label>
+                    <select
+                        type="text"
+                        id="subCategory"
+                        onChange={(e) => setsubCategory(e.target.value)}
+                        className="form-input"
+                    >
+                        <option value="boss">szef</option>
+                        <option value="client">klient</option>
+                        <option value="employee">pracownik</option>
+                    </select>
+                </div>
+            );
+        }
+        else if (category == "other") {
+            return (
+                <div className="form-group">
+                    <label htmlFor="subCatefory">subcategory:</label>
+                    <input
+                        type="text"
+                        id="subCategory"
+                        value={subCategory}
+                        onChange={(e) => setsubCategory(e.target.value)}
+                        className="form-input"
+                    />
+                </div>
+            );
+        }
+        else {
+            return;
+        }
+    }
 
     return (
         <div className="flex-container">
@@ -92,23 +128,18 @@ function AddNewContact() {
                         </div>
                         <div className="form-group">
                             <label htmlFor="category">Category:</label>
-                            <input
+                            <select
                                 type="text"
                                 id="category"
                                 onChange={(e) => setCategory(e.target.value)}
                                 className="form-input"
-                            />
+                            >
+                                <option value="business">s³u¿bowy</option>
+                                <option value="private">prywatny</option>
+                                <option value="other">inny</option>
+                            </select>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="subCatefory">subcategory:</label>
-                            <input
-                                type="text"
-                                id="subCategory"
-                                value={subCategory}
-                                onChange={(e) => setsubCategory(e.target.value)}
-                                className="form-input"
-                            />
-                        </div>
+                         {subCategoryField()}
                         <div className="form-group">
                             <label htmlFor="phoneNumber">Phone number:</label>
                             <input

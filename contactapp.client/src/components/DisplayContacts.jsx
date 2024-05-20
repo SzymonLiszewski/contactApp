@@ -37,6 +37,7 @@ function DisplayContacts() {
                             <p>email address: {item.email}</p>
                             <p>password: {item.password}</p>
                             <p>category: {item.category}</p>
+                            <p>subcategory: {item.subCategory}</p>
                             <p>phone number: {item.phoneNumber}</p>
                             <p>date of birth: {item.dateOfBirth}</p>
                         </div>
