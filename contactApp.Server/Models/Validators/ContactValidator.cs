@@ -34,6 +34,11 @@ namespace contactApp.Server.Models.Validators
             RuleFor(x => x.phoneNumber)
             .NotEmpty().WithMessage("Phone number is required.")
             .Matches(@"^\+?[1-9]\d{1,14}$").WithMessage("Phone number is not valid. It must be a valid international phone number.");
+
+            When(x => x.category == "służbowy", () =>
+            {
+                RuleFor(x => x.subCategory).Matches("^(szef|klient|pracownik)$").WithMessage("Incorrect subcategory");
+            });
         }
         private bool BeAValidDate(DateOnly? date)
         {

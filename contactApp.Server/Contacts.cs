@@ -8,6 +8,7 @@
         public string email { get; set; }
         public string password { get; set; }
         public string category { get; set; }
+        public string subCategory { get; set; }
         public string phoneNumber { get; set; }
         public string dateOfBirth { get; set; }
 
