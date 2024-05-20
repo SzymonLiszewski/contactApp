@@ -44,6 +44,7 @@ namespace contactApp.Server.Controllers
 
         // PUT: api/Contacts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutContacts(long id, Contacts contacts)
         {
@@ -75,6 +76,7 @@ namespace contactApp.Server.Controllers
 
         // POST: api/Contacts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Contacts>> PostContacts(Contacts contacts)
         {
