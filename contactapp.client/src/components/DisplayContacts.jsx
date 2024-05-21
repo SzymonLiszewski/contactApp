@@ -4,7 +4,7 @@ import '/src/Contacts.css'
 function DisplayContacts() {
     const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-    const [forecasts, setForecasts] = useState();
+    const [contacts, setContacts] = useState();
 
     useEffect(() => {
         populateWeatherData();
@@ -19,12 +19,14 @@ function DisplayContacts() {
         }));
     };
 
-    const contents = forecasts === undefined
+    const contents = contacts === undefined
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started.</em></p>
-        : <div className="data-list-container">
+        : contacts.length == 0 ? <div>
+            {isLoggedIn === 'true' ? <a href="/create">create new</a> : <p>list is empty. Log in to add new contacts</p>}</div>:
+        <div className="data-list-container">
             <h2>Lista danych</h2>
             {isLoggedIn==='true' ? <a href="/create">create new</a> : null}
-            {forecasts.map(item => (
+            {contacts.map(item => (
                 <div key={item.id} className="data-item">
                     <div className="data-item-content" onClick={() => handleFieldClick(item.id)}>
                         <strong>{item.firstName} {item.lastName}</strong>
@@ -58,7 +60,7 @@ function DisplayContacts() {
     async function populateWeatherData() {
         const response = await fetch('Contacts');
         const data = await response.json();
-        setForecasts(data);
+        setContacts(data);
     }
 
     async function deleteContact(id) {
