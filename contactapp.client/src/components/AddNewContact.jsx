@@ -82,6 +82,7 @@ function AddNewContact() {
                         <div className="form-group">
                             <label htmlFor="dateOfBirth">date of birth:</label>
                             <input
+                                placeholder="yyyy-mm-dd"
                                 type="text"
                                 id="dateOfBirth"
                                 value={dateOfBirth}
