@@ -20,7 +20,7 @@ function DisplayContacts() {
     };
 
     const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
+        ? <p><em>Loading... Please refresh once the ASP.NET backend has started.</em></p>
         : <div className="data-list-container">
             <h2>Lista danych</h2>
             {isLoggedIn==='true' ? <a href="/create">create new</a> : null}

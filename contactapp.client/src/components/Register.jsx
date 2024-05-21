@@ -10,6 +10,8 @@ function Register() {
     const [lastName, setlastName] = useState('');
     const [error, setError] = useState('');
 
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -86,8 +88,9 @@ function Register() {
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('signed up succesfully');
-                    navigate('/login');
+                    console.log('siged up succesfully');
+                    logUser({ email, password })
+                    navigate('/home');
                     alert('pomyslnie utworzono nowe konto');
 
                 }
@@ -104,6 +107,38 @@ function Register() {
             })
             .catch(error => {
                 console.error('error:', error);
+            });
+    }
+
+    function logUser(loginData) {
+        var logged = false;
+        fetch('api/account/Login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginData)
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('login succesfull');
+                    sessionStorage.setItem('isLoggedIn', true);
+                    logged = true;
+                    console.log(isLoggedIn);
+                } return response.text();
+            })
+            .then(text => {
+                if (logged) {
+                    //alert('zalogowano');
+                    sessionStorage.setItem('jwtToken', text);
+                    navigate('/home');
+                }
+                else {
+                    alert("incorrect email or password")
+                }
+            })
+            .catch(error => {
+                console.error(error);
             });
     }
 }
