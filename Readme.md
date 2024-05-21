@@ -11,7 +11,7 @@
         git clone https://github.com/SzymonLiszewski/contactApp
     ```
     ```
-        cd contactApp.Server
+        cd contactApp\contactApp.Server
     ```
     ``` 
         dotnet build
