@@ -3,7 +3,7 @@ import '/src/Contacts.css'
 
 function DisplayContacts() {
     const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     const [forecasts, setForecasts] = useState();
 
     useEffect(() => {

@@ -7,10 +7,18 @@
    - dodawanie/edycje/usuwanie kontaktów (jako zalogowany użytkownik)
     
 2. Uruchomienie
-    - git clone ...
-    - cd contactApp.Server
-    - dotnet build
-    - dotnet run
+    ```
+        git clone https://github.com/SzymonLiszewski/contactApp
+    ```
+    ```
+        cd contactApp.Server
+    ```
+    ``` 
+        dotnet build
+    ```
+    ```
+        dotnet run
+    ```
 3. opis klas
     struktura projektu:
     - contactApp.client

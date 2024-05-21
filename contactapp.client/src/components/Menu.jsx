@@ -5,7 +5,7 @@ import './Menu.css';
 
 function Menu() {
     const token = localStorage.getItem('jwtToken') || sessionStorage.getItem('jwtToken');
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     useEffect(() => {
         //reload();
     }, [localStorage.getItem('isLoggedIn')]);

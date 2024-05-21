@@ -41,7 +41,9 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserValidator>();
 builder.Services.AddScoped<IValidator<Contacts>, ContactValidator>();
 builder.Services.AddDbContext<ContactsContext>(opt =>
+    //opt.UseSqlServer("Server=SERVER_NAME;Database=Contacts;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true"));
     opt.UseInMemoryDatabase("ContactsList"));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './Login.css';
 
 function Login() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -68,7 +68,7 @@ function Login() {
             .then(response => {
                 if (response.ok) {
                     console.log('login succesfull');
-                    localStorage.setItem('isLoggedIn', true);
+                    sessionStorage.setItem('isLoggedIn', true);
                     logged = true;
                     console.log(isLoggedIn);
                 } return response.text();

@@ -7,8 +7,8 @@ function Logout() {
     const navigate = useNavigate();
     useEffect(() => {
         
-        localStorage.removeItem('token');
-        localStorage.setItem('isLoggedIn', false);
+        sessionStorage.removeItem('jwtToken');
+        sessionStorage.setItem('isLoggedIn', false);
         navigate('/home');
     });
 
