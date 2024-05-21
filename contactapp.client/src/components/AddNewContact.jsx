@@ -15,7 +15,7 @@ function AddNewContact() {
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [category, setCategory] = useState('business');
-    const [subCategory, setsubCategory] = useState('');
+    const [subCategory, setsubCategory] = useState('boss');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [error, setError] = useState('');
